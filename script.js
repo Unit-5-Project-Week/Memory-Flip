@@ -13,25 +13,31 @@ function flipCard() {
   this.classList.add("flip");
 
   if (!hasFlippedCard) {
-    // first click
     hasFlippedCard = true;
     firstCard = this;
-  } else {
-    // second click
-    hasFlippedCard = false;
-    secondCard = this;
+    return;
+  } 
+  hasFlippedCard = false;
+  secondCard = this;
 
-    // do cards match?
-    if (firstCard.dataset.image === secondCard.dataset.image) {
-      firstCard.removeEventListener("click", flipCard);
-      secondCard.removeEventListener("click", flipCard);
-    } else {
-      setTimeout(() => {
-        firstCard.classList.remove("flip");
-        secondCard.classList.remove("flip");
-      }, 1000);
-    }
-  }
+  matchCheck();
+}
+
+function matchCheck(){
+  let matched = (firstCard.dataset.image === secondCard.dataset.image)
+  matched ? cardDisabling() : cardUnflipping();
+}
+
+function cardDisabling(){
+  firstCard.removeEventListener("click", flipCard);
+  secondCard.removeEventListener("click", flipCard);
+}
+
+function cardUnflipping(){
+  setTimeout(() => {
+    firstCard.classList.remove("flip");
+    secondCard.classList.remove("flip");
+  }, 1000);
 }
 
 memoryCards.forEach((memoryCard) =>
