@@ -12,18 +12,25 @@ let firstCard, secondCard;
 function flipCard() {
   this.classList.add("flip");
 
-  if (!hasFlippedCard){
+  if (!hasFlippedCard) {
     // first click
     hasFlippedCard = true;
     firstCard = this;
   } else {
-    // second click 
+    // second click
     hasFlippedCard = false;
     secondCard = this;
 
     // do cards match?
-    console.log(firstCard.dataset.image);
-    console.log(secondCard.dataset.image);
+    if (firstCard.dataset.image === secondCard.dataset.image) {
+      firstCard.removeEventListener("click", flipCard);
+      secondCard.removeEventListener("click", flipCard);
+    } else {
+      setTimeout(() => {
+        firstCard.classList.remove("flip");
+        secondCard.classList.remove("flip");
+      }, 1000);
+    }
   }
 }
 
