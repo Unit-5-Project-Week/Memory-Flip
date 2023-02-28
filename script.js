@@ -53,6 +53,13 @@ function boardReset() {
   [firstCard, secondCard] = [null, null];
 }
 
+(function shuffle(){
+  memoryCards.forEach(card => {
+    let rand = Math.floor(Math.random() * 12);
+    card.style.order = rand;
+  });
+})();
+
 memoryCards.forEach((memoryCard) =>
   memoryCard.addEventListener("click", flipCard)
 );
