@@ -4,40 +4,53 @@
 
 const memoryCards = document.querySelectorAll(".memory-card");
 let hasFlippedCard = false;
+let lockBoard = false;
 let firstCard, secondCard;
 
 /////////////////////
 ///Functions
 /////////////////////
 function flipCard() {
+  if (lockBoard) return;
+  if (this === firstCard) return;
+
   this.classList.add("flip");
 
   if (!hasFlippedCard) {
     hasFlippedCard = true;
     firstCard = this;
     return;
-  } 
-  hasFlippedCard = false;
+  }
+
   secondCard = this;
 
   matchCheck();
 }
 
-function matchCheck(){
-  let matched = (firstCard.dataset.image === secondCard.dataset.image)
+function matchCheck() {
+  let matched = firstCard.dataset.image === secondCard.dataset.image;
   matched ? cardDisabling() : cardUnflipping();
 }
 
-function cardDisabling(){
+function cardDisabling() {
   firstCard.removeEventListener("click", flipCard);
   secondCard.removeEventListener("click", flipCard);
+  boardReset();
 }
 
-function cardUnflipping(){
+function cardUnflipping() {
+  lockBoard = true;
+
   setTimeout(() => {
     firstCard.classList.remove("flip");
     secondCard.classList.remove("flip");
+    boardReset();
   }, 1000);
+}
+
+function boardReset() {
+  [hasFlippedCard, lockBoard] = [false, false];
+  [firstCard, secondCard] = [null, null];
 }
 
 memoryCards.forEach((memoryCard) =>
