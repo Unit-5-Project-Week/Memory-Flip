@@ -7,7 +7,7 @@
 body {
   height: 100vh;
   display: flex;
-  background: ;
+  background: url(Images/sky-purple.gif) no-repeat center center/ cover;;
 }
 
 .memory-game {
