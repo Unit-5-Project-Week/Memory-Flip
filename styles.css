@@ -7,7 +7,7 @@
 body {
   height: 100vh;
   display: flex;
-  background: gainsboro;
+  background: ;
 }
 
 .memory-game {
@@ -27,6 +27,7 @@ body {
   transform: scale(1);
   transform-style: preserve-3d;
   transition: transform 0.5s;
+  background-color: cyan;
 }
 
 /* This is a pseudo-class, or special state of an element. The active selector allows for selecting AND styling a link, the cards specifically */
@@ -53,4 +54,3 @@ body {
 .front-face {
   transform: rotateY(180deg);
 }
-
