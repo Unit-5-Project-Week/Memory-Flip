@@ -6,6 +6,7 @@ const memoryCards = document.querySelectorAll(".memory-card");
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
+let cardsCounted = 0;
 
 /////////////////////
 ///Functions
@@ -31,6 +32,10 @@ function flipCard() {
 function matchCheck() {
   let matched = firstCard.dataset.image === secondCard.dataset.image;
   matched ? cardDisabling() : cardUnflipping();
+  if (matched === true){
+    cardsCounted++
+  }
+  cardCount();
 }
 
 function cardDisabling() {
@@ -65,10 +70,15 @@ function resetGame() {
   location.reload();
 }
 
-
+function cardCount(){
+  if (cardsCounted === 6){
+    alert("You win the game! Press reset to try again!")
+  }
+}
 
 resetButton.addEventListener("click", resetGame);
 
 memoryCards.forEach((memoryCard) =>
   memoryCard.addEventListener("click", flipCard)
 );
+
