@@ -17,6 +17,7 @@ body {
   flex-wrap: wrap;
   margin: auto;
   perspective: 1000px;
+  align-items: center;
 }
 
 .memory-card {
@@ -27,7 +28,7 @@ body {
   transform: scale(1);
   transform-style: preserve-3d;
   transition: transform 0.5s;
-  background-color: cyan;
+  background-color: #dc8c24;
 }
 
 /* This is a pseudo-class, or special state of an element. The active selector allows for selecting AND styling a link, the cards specifically */
@@ -47,10 +48,31 @@ body {
   padding: 20px;
   position: absolute;
   border-radius: 5px;
-  border: 2px solid greenyellow;
+  border: 2px solid #fcdc7b ;
   backface-visibility: hidden;
 }
 
 .front-face {
   transform: rotateY(180deg);
 }
+
+Button{
+  background-color: #7094b7 ;
+  font-family: 'Herculanum';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 100px;
+  color: #5c3026 
+ }
+ 
+ #buttonDiv{
+  position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px;
+ }

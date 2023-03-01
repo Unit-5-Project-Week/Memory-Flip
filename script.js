@@ -10,6 +10,7 @@ let firstCard, secondCard;
 /////////////////////
 ///Functions
 /////////////////////
+
 function flipCard() {
   if (lockBoard) return;
   if (this === firstCard) return;
@@ -59,6 +60,14 @@ function boardReset() {
     card.style.order = rand;
   });
 })();
+
+function resetGame() {
+  location.reload();
+}
+
+
+
+resetButton.addEventListener("click", resetGame);
 
 memoryCards.forEach((memoryCard) =>
   memoryCard.addEventListener("click", flipCard)
