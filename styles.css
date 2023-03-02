@@ -7,7 +7,7 @@
 body {
   height: 100vh;
   display: flex;
-  background: url(Images/sky-purple.gif) no-repeat center center/ cover;;
+  background: url(Images/UpLU.gif ) no-repeat center center/ cover;;
 }
 
 .memory-game {
@@ -29,6 +29,7 @@ body {
   transform-style: preserve-3d;
   transition: transform 0.5s;
   background-color: #dc8c24;
+  border-radius: 10px;
 }
 
 /* This is a pseudo-class, or special state of an element. The active selector allows for selecting AND styling a link, the cards specifically */
