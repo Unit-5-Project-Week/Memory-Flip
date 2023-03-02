@@ -2,7 +2,7 @@ const avatar = document.querySelector(".avatar");
 
 function startRedirect() {
   setTimeout((e) => {
-    location.href = "index.html";
+    location.href = "start.html";
   }, 4500);
 }
 
